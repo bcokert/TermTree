@@ -1,0 +1,18 @@
+# IDE / editor files
+*.iml
+.idea/
+.idea_modules
+*.swp
+.vagrant
+.vscode
+
+# Tools
+yarn-error.log
+.coverage-reports
+node_modules
+
+# OSX stuff
+.DS_Store
+
+# Build
+static/
