@@ -5,6 +5,9 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
+
+	"github.com/bcokert/TermTree/graph"
+	_http "github.com/bcokert/TermTree/http"
 )
 
 func main() {
@@ -20,9 +23,16 @@ func main() {
 		return
 	}
 
+	schema, err := graph.CreateTermSchema()
+	if err != nil {
+		log.Printf("Failed to start server: %v", err)
+		return
+	}
+
 	router := http.NewServeMux()
 	router.Handle("/", http.StripPrefix("/", &indexHandler{IndexTemplate: indexTemplate, NotFoundTemplate: notFoundTemplate}))
 	router.Handle("/static/", http.StripPrefix("/static/", &staticHandler{AssetDir: "static/"}))
+	router.Handle("/graph/", http.StripPrefix("/graph/", _http.CreateHandler(schema, true)))
 
 	loggingRouter := http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		log.Printf("%s %q\n", r.Method, r.URL)
