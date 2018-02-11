@@ -15,8 +15,7 @@ node_modules
 .DS_Store
 
 # Build
-static/
-TermTree
+build/
 
 # Library
 vendor/

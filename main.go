@@ -6,18 +6,18 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/bcokert/TermTree/graph"
-	_http "github.com/bcokert/TermTree/http"
+	"github.com/bcokert/TermTree/packages/go/graph"
+	_http "github.com/bcokert/TermTree/packages/go/http"
 )
 
 func main() {
-	indexTemplate, err := ioutil.ReadFile("index.template.html")
+	indexTemplate, err := ioutil.ReadFile("packages/go/http/index.template.html")
 	if err != nil {
-		log.Printf("Failed to load template %s: %v", "index.template.html", err)
+		log.Printf("Failed to load template %s: %v", "packages/go/http/index.template.html", err)
 		return
 	}
 
-	notFoundTemplate, err := ioutil.ReadFile("404.template.html")
+	notFoundTemplate, err := ioutil.ReadFile("packages/go/http/404.template.html")
 	if err != nil {
 		log.Printf("Failed to load template %s: %v", "404.template.html", err)
 		return
@@ -31,7 +31,7 @@ func main() {
 
 	router := http.NewServeMux()
 	router.Handle("/", http.StripPrefix("/", &indexHandler{IndexTemplate: indexTemplate, NotFoundTemplate: notFoundTemplate}))
-	router.Handle("/static/", http.StripPrefix("/static/", &staticHandler{AssetDir: "static/"}))
+	router.Handle("/static/", http.StripPrefix("/static/", &staticHandler{AssetDir: "build/static/"}))
 	router.Handle("/graph/", http.StripPrefix("/graph/", _http.CreateHandler(schema, true)))
 
 	loggingRouter := http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
