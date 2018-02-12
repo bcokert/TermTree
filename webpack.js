@@ -25,7 +25,9 @@ module.exports = {
   },
   resolve: {
     alias: {
-      pkg: packageDir
+      pkg: packageDir,
+      lib: packageDir + "/__lib__",
+      style: packageDir + "/__style__"
     },
     extensions: [".webpack.js", ".js"]
   },
