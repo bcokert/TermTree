@@ -9,6 +9,8 @@ const entry = {
   "main": path.resolve(__dirname, "main.js")
 }
 
+const values = obj => Object.keys(obj).map(k => obj[k]);
+
 module.exports = {
   entry,
   output: {
@@ -18,7 +20,7 @@ module.exports = {
   },
   module: {
     loaders: [
-      { test: /\.js?/, include: Object.values(entry).concat([packageDir]), loader: "babel-loader" },
+      { test: /\.js?/, include: values(entry).concat([packageDir]), loader: "babel-loader" },
       { test: /\.json$/, loader: "json" },
       { test: /\.(jpe?g|gif|png|svg)$/i, loader: "url?limit=10000" }
     ]
