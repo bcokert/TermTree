@@ -43,6 +43,10 @@ const CrumbItem = styled(({ text, className, onClick }) =>
 ).attrs({ className: "CrumbItem" })`
   ${CrumbSegment}
   color: ${colorText.standard};
+  &:hover {
+    color: ${colorText.hover};
+    cursor: pointer;
+  }
 `
 
 export default connect(termStore, ({ termCache, breadcrumbs }) => ({

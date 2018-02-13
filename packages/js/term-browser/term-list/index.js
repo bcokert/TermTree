@@ -34,7 +34,7 @@ const TermItem = styled.div.attrs({className: "TermItem"})`
 
   &:hover {
     background-color: #FFFFfD;
-    cursor: default;
+    cursor: pointer;
   }
 `
 

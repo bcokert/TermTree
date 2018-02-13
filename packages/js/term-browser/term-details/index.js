@@ -49,7 +49,7 @@ const InlineTerm = styled.span.attrs({className: "InlineTerm"})`
 
   &:hover {
     color: #3366BB;
-    cursor: default;
+    cursor: pointer;
   }
 `
 

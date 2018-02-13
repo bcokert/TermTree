@@ -1,5 +1,6 @@
 export const text = {
   standard: "#444",
+  hover: "#666",
   light: "#888"
 }
 
