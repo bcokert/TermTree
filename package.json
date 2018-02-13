@@ -8,14 +8,15 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "build": "rm -rf static && webpack -p --config webpack.js",
+    "build": "rm -rf static && webpack -p --config webpack.prod.js",
     "lint": "eslint . --fix --ext .js",
-    "watch": "webpack --config webpack.js --progress --colors --watch --debug --devtool eval-source-map --output-pathinfo"
+    "watch": "webpack --config webpack.dev.js --progress --colors --watch --debug --devtool eval-source-map --output-pathinfo"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "webpack": "^3.10.0"

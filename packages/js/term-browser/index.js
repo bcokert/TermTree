@@ -28,7 +28,7 @@ const Content = styled.div.attrs({className: "Content"})`
 export default ({ width, height }) => <TermBrowser width={width} height={height}>
   <Breadcrumbs crumbs={range(20).map(i => ({ name: `test${i}`, id: `${i}` }))}/>
   <Content>
-    <TermList terms={range(30).map(i => `test${i}`)}/>
-    <TermDetails name="Entropy" value="Entropy represents the possible {{term:kinetic_state}} of a {{term:system_of_particles}}. A larger Entropy means there are more possible states the {{term: system_of_particles}} could be in. Entropy is measured from an arbitrary origin value; thus entropies can only be compared if they have the same origin value."/>
+    <TermList />
+    <TermDetails />
   </Content>
 </TermBrowser>
