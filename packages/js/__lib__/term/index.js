@@ -17,8 +17,8 @@ export const interpolate = (termMap, value, linkBuilder) => {
 
     let termId = Array.isArray(metaTerm) ? metaTerm[1].trim() : undefined
     let display = Array.isArray(metaDisplay) ? metaDisplay[1].trim() : undefined
-
-    const displayText = display || termId && termMap[termId] ? termMap[termId].name : "<unkown term>"
+    
+    const displayText = display || (termId && termMap[termId] ? termMap[termId].name : "<unkown term>")
     return React.cloneElement(linkBuilder(displayText, termId ? termMap[termId] : undefined), { key: index })
   }
 
